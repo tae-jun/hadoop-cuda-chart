@@ -1,0 +1,5 @@
+class HadoopData {
+
+}
+
+export = HadoopData;
