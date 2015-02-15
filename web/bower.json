@@ -1,0 +1,12 @@
+{
+  "name": "hadoop-cuda-chart-web",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.3.13",
+    "angular-material": "~0.7.1",
+    "jquery": "~2.1.3",
+    "highcharts-ng": "~0.0.7",
+    "angular-route": "~1.3.13"
+  }
+}

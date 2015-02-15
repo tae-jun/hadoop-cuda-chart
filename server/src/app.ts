@@ -33,6 +33,9 @@ async.series([
         if (err)
             return console.log(err);
 
+        // Set routes
+        app.use('/', require('./route/index'));
+
         // Start web & socket.io server
         server.listen(config.web.port, ()=> {
             console.log('+++ Web & Socket.io is listening on port %d', config.web.port);

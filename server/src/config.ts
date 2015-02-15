@@ -1,3 +1,5 @@
+import path = require('path');
+
 module config {
     export var web = {
         port: 80
@@ -8,6 +10,11 @@ module config {
     export var mongo = {
         port: 27017,
         hccDbName: 'hcc'
+    };
+
+    export var route = {
+        bowerDir: path.resolve(__dirname, '../../web/bower_components'),
+        distDir: path.resolve(__dirname, '../../web/dist')
     };
 }
 

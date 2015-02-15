@@ -23,3 +23,9 @@ export function insert(data, callback?:(err, result)=>void) {
             callback(err, result);
     });
 }
+
+export function findOne(callback?:(err, hdlog)=>void) {
+    coll.findOne((err, doc)=> {
+        callback(err, doc);
+    });
+}
