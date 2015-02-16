@@ -1,107 +1,83 @@
 /// <reference path="../main" />
+/// <reference path="../services/chartService" />
 
 module chart {
     export class ChartCtrl {
 
-        
-        constructor($scope:IChartScope, $mdSidenav) {
+
+        constructor($scope:IChartScope, $mdSidenav, chartService:ChartService) {
             $scope.toggleSidenav = (menuId) => {
                 $mdSidenav(menuId).toggle();
             };
 
-            $('#container').highcharts({
+            chartService.get((err, data)=> {
+                if (err)
+                    return;
 
-                chart: {
-                    type: 'columnrange',
-                    inverted: true
-                },
-                title: {
-                    text: 'Mapper Charts'
-                },
-                xAxis: {
-                    categories: ['001', '002']
-                },
-                yAxis: {
-                    type: 'datetime',
+                console.log(data);
+
+                var mappers = data.mappers;
+
+                console.log(mappers);
+
+                var series = [];
+                mappers.forEach((mapper, index)=> {
+                    series.push({
+                        name: 'Mapper' + index,
+                        data: [{
+                            x: index,
+                            low: mapper.start,
+                            high: mapper.end
+                        }]
+                    })
+                });
+
+                this.setChart({
+
+                    chart: {
+                        type: 'columnrange',
+                        inverted: true,
+                        zoomType: 'x'
+                    },
                     title: {
-                        text: 'Timespan'
-                    }
-                },
-                plotOptions: {
-                    columnrange: {
-                        grouping: false
-                    }
-                },
-                legend: {
-                    enabled: true
-                },
-                tooltip: {
-                    formatter: function () {
-                        return '<b>' + this.x + ' - ' + this.series.name + '</b><br/>' + Highcharts.dateFormat('%e %B %H:%M', this.point.low) +
-                            ' - ' + Highcharts.dateFormat('%B %e %H:%M', this.point.high) + '<br/>';
-                    }
-                },
-
-                series: [{
-                    name: 'Producing',
-                    data: [{
-                        x: 0,
-                        low: Date.UTC(2013, 7, 3, 0, 0, 0),
-                        high: Date.UTC(2013, 7, 3, 4, 0, 0)
-                    }, {
-                        x: 0,
-                        low: Date.UTC(2013, 7, 3, 10, 0, 0),
-                        high: Date.UTC(2013, 7, 3, 12, 0, 0)
-                    }, {
-                        x: 0,
-                        low: Date.UTC(2013, 7, 3, 14, 0, 0),
-                        high: Date.UTC(2013, 7, 3, 15, 0, 0)
-                    }, {
-                        x: 1,
-                        low: Date.UTC(2013, 7, 3, 16, 0, 0),
-                        high: Date.UTC(2013, 7, 3, 18, 0, 0)
-                    }
-                    ]
-                }, {
-                    name: 'Breakdown',
-                    data: [{
-                        x: 0,
-                        low: Date.UTC(2013, 7, 3, 4, 0, 0),
-                        high: Date.UTC(2013, 7, 3, 10, 0, 0)
-                    }, {
-                        x: 0,
-                        low: Date.UTC(2013, 7, 3, 18, 0, 0),
-                        high: Date.UTC(2013, 7, 3, 24, 0, 0)
-                    }]
-                }, {
-                    name: "Changeover",
-                    data: [{
-                        x: 0,
-                        low: Date.UTC(2013, 7, 4, 1, 0, 0),
-                        high: Date.UTC(2013, 7, 4, 5, 0, 0)
-                    }, {
-                        x: 0,
-                        low: Date.UTC(2013, 7, 2, 10, 0, 0),
-                        high: Date.UTC(2013, 7, 2, 23, 0, 0)
-                    },]
-                }, {
-                    name: "TrialRun",
-                    data: [{
-                        x: 0,
-                        low: Date.UTC(2013, 7, 4, 5, 0, 0),
-                        high: Date.UTC(2013, 7, 4, 13, 0, 0)
-                    }, {
-                        x: 0,
-                        low: Date.UTC(2013, 7, 2, 2, 0, 0),
-                        high: Date.UTC(2013, 7, 2, 10, 0, 0)
-                    }]
-                }]
+                        text: 'Mapper Charts'
+                    },
+                    xAxis: {
+                        categories: []
+                    },
+                    yAxis: {
+                        type: 'linear',
+                        title: {
+                            text: 'Timespan'
+                        }
+                    },
+                    plotOptions: {
+                        columnrange: {
+                            grouping: false
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return '<b>' + this.x + ' - ' + this.series.name + '</b><br/>' + Highcharts.dateFormat('%e %B %H:%M', this.point.low) +
+                                ' - ' + Highcharts.dateFormat('%B %e %H:%M', this.point.high) + '<br/>';
+                        }
+                    },
+                    series: series
+                });
             });
+        }
+
+        setChart(chartOptions:HighchartsOptions):void {
+            $('#chartContainer').highcharts(chartOptions);
         }
     }
 
     export interface IChartScope extends ng.IScope {
         toggleSidenav(menuId);
+        chartConfig: any;
     }
 
     registerController('chartCtrl', ChartCtrl);

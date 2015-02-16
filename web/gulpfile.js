@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     tsc = require('gulp-tsc'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
-    flatten = require('gulp-flatten');
+    flatten = require('gulp-flatten'),
+    plumber = require('gulp-plumber');
 
 var src = {
     ts: ['src/**/*.ts', 'scripts/_references.d.ts'],
@@ -46,11 +47,13 @@ gulp.task('copy:tpl', function () {
 gulp.task('concat:css', function () {
     return gulp.src(src.css)
         .pipe(concat('app.css'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist'))
+        .pipe(livereload());
 });
 
 gulp.task('tsc', function () {
     return gulp.src(src.ts)
+        .pipe(plumber())
         .pipe(tsc(tscOptions))
         .pipe(gulp.dest('dist'))
         .pipe(livereload());
@@ -70,5 +73,5 @@ gulp.task('watch', function () {
 
     gulp.watch(src.tpl, ['copy:tpl']);
 
-    gulp.watch(src.css, ['concat:css', 'reload']);
+    gulp.watch(src.css, ['concat:css']);
 });

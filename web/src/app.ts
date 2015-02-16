@@ -14,4 +14,8 @@ var app = angular.module('hcc', dependencies)
             .otherwise({
                 redirectTo: '/chart'
             });
+    })
+
+    .run((chartService, $window)=> {
+        $window.chartService = chartService;
     });
