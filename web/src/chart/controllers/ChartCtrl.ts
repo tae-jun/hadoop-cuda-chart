@@ -4,15 +4,14 @@
 module chart {
     export class ChartCtrl {
 
-
-        constructor($scope:IChartScope, $mdSidenav, chartService:ChartService) {
+        constructor($scope: IChartScope, $mdSidenav, chartService: ChartService) {
             $scope.toggleSidenav = (menuId) => {
                 $mdSidenav(menuId).toggle();
             };
 
-            chartService.get((err, data)=> {
+            chartService.get((err, data) => {
                 if (err)
-                    return;
+                    return console.error(err);
 
                 console.log(data);
 
@@ -21,7 +20,7 @@ module chart {
                 console.log(mappers);
 
                 var series = [];
-                mappers.forEach((mapper, index)=> {
+                mappers.forEach((mapper, index) => {
                     series.push({
                         name: 'Mapper' + index,
                         data: [{
@@ -60,7 +59,7 @@ module chart {
                         enabled: false
                     },
                     tooltip: {
-                        formatter: function () {
+                        formatter: function() {
                             return '<b>' + this.x + ' - ' + this.series.name + '</b><br/>' + Highcharts.dateFormat('%e %B %H:%M', this.point.low) +
                                 ' - ' + Highcharts.dateFormat('%B %e %H:%M', this.point.high) + '<br/>';
                         }
@@ -70,7 +69,7 @@ module chart {
             });
         }
 
-        setChart(chartOptions:HighchartsOptions):void {
+        setChart(chartOptions: HighchartsOptions): void {
             $('#chartContainer').highcharts(chartOptions);
         }
     }
