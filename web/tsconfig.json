@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "out": "./tsout.js"
+    },
+    "filesGlob": [
+        "src/**/*.ts",
+        "scripts/**/*.ts",
+        "!./node_modules/**/*.ts"
+    ],
+    "files": [
+        "src/app.ts",
+        "src/chart/controllers/ChartCtrl.ts",
+        "src/chart/main.ts",
+        "src/chart/services/chartService.ts",
+        "src/config.ts",
+        "scripts/typings/angularjs/angular-animate.d.ts",
+        "scripts/typings/angularjs/angular-route.d.ts",
+        "scripts/typings/angularjs/angular.d.ts",
+        "scripts/typings/highcharts/highcharts.d.ts",
+        "scripts/typings/jquery/jquery.d.ts"
+    ]
+}
