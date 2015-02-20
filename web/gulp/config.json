@@ -1,0 +1,14 @@
+{
+  "src": {
+    "ts": ["src/**/*.ts", "scripts/**/*.d.ts"],
+    "index": "src/index.html",
+    "css": ["src/**/*.css"],
+    "tpl": ["src/**/*.tpl.html"],
+    "scss": ["src/**/*.scss"]
+  },
+  "tscOptions" : {
+    "module": "commonjs",
+    "target": "ES5",
+    "out": "app.js"
+  }
+}
