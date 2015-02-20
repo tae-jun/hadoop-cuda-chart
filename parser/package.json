@@ -1,8 +1,0 @@
-{
-  "name": "parser",
-  "version": "0.0.0",
-  "private": true,
-  "dependencies": {
-    "async": "^0.9.0"
-  }
-}

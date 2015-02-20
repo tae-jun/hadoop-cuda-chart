@@ -4,17 +4,17 @@ var dependencies = ['ngRoute', 'ngMaterial', 'chart'];
 
 var app = angular.module('hcc', dependencies)
 
-    .config(($routeProvider:ng.route.IRouteProvider) => {
-        $routeProvider
-            .when('/chart', {
-                templateUrl: 'tpl/chart.tpl.html'
-            })
-
-            .otherwise({
-                redirectTo: '/chart'
-            });
+    .config(($routeProvider: ng.route.IRouteProvider) => {
+    $routeProvider
+        .when('/chart', {
+        templateUrl: 'tpl/chart.tpl.html'
     })
 
-    .run((chartService, $window)=> {
-        $window.chartService = chartService;
+        .otherwise({
+        redirectTo: '/chart'
     });
+})
+
+    .run((chartService, $window) => {
+    $window.chartService = chartService;
+});

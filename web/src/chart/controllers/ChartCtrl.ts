@@ -39,7 +39,7 @@ module chart {
                         zoomType: 'x'
                     },
                     title: {
-                        text: 'Mapper Charts'
+                        text: ''
                     },
                     xAxis: {
                         categories: []
@@ -47,7 +47,7 @@ module chart {
                     yAxis: {
                         type: 'linear',
                         title: {
-                            text: 'Timespan'
+                            text: null
                         }
                     },
                     plotOptions: {
