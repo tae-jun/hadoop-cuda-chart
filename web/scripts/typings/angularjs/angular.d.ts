@@ -23,7 +23,7 @@ declare module 'angular' {
 ///////////////////////////////////////////////////////////////////////////////
 declare module ng {
 
-    // not directly implemented, but ensures that constructed class implements $get
+    // not directly implemented, but ensures that constructed class implements $getData
     interface IServiceProviderClass {
         new (...args: any[]): IServiceProvider;
     }
@@ -338,17 +338,17 @@ declare module ng {
         directive(name: string, inlineAnnotatedFunction: any[]): IModule;
         directive(object: Object): IModule;
         /**
-         * Register a service factory, which will be called to return the service instance. This is short for registering a service where its provider consists of only a $get property, which is the given service factory function. You should use $provide.factory(getFn) if you do not need to configure your service in a provider.
+         * Register a service factory, which will be called to return the service instance. This is short for registering a service where its provider consists of only a $getData property, which is the given service factory function. You should use $provide.factory(getFn) if you do not need to configure your service in a provider.
          *
          * @param name The name of the instance.
-         * @param $getFn The $getFn for the instance creation. Internally this is a short hand for $provide.provider(name, {$get: $getFn}).
+         * @param $getFn The $getFn for the instance creation. Internally this is a short hand for $provide.provider(name, {$getData: $getFn}).
          */
         factory(name: string, $getFn: Function): IModule;
         /**
-         * Register a service factory, which will be called to return the service instance. This is short for registering a service where its provider consists of only a $get property, which is the given service factory function. You should use $provide.factory(getFn) if you do not need to configure your service in a provider.
+         * Register a service factory, which will be called to return the service instance. This is short for registering a service where its provider consists of only a $getData property, which is the given service factory function. You should use $provide.factory(getFn) if you do not need to configure your service in a provider.
          *
          * @param name The name of the instance.
-         * @param inlineAnnotatedFunction The $getFn for the instance creation. Internally this is a short hand for $provide.provider(name, {$get: $getFn}).
+         * @param inlineAnnotatedFunction The $getFn for the instance creation. Internally this is a short hand for $provide.provider(name, {$getData: $getFn}).
          */
         factory(name: string, inlineAnnotatedFunction: any[]): IModule;
         factory(object: Object): IModule;
@@ -372,7 +372,7 @@ declare module ng {
         service(name: string, inlineAnnotatedConstructor: any[]): IModule;
         service(object: Object): IModule;
         /**
-         * Register a value service with the $injector, such as a string, a number, an array, an object or a function. This is short for registering a service where its provider's $get property is a factory function that takes no arguments and returns the value service.
+         * Register a value service with the $injector, such as a string, a number, an array, an object or a function. This is short for registering a service where its provider's $getData property is a factory function that takes no arguments and returns the value service.
 
            Value services are similar to constant services, except that they cannot be injected into a module configuration function (see config) but they can be overridden by an Angular decorator.
          *
@@ -610,7 +610,7 @@ declare module ng {
 
     ///////////////////////////////////////////////////////////////////////////
     // BrowserService
-    // TODO undocumented, so we need to get it from the source code
+    // TODO undocumented, so we need to getData it from the source code
     ///////////////////////////////////////////////////////////////////////////
     interface IBrowserService {
         [key: string]: any;

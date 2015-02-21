@@ -1,6 +1,7 @@
 /// <reference path="./chart/main.ts" />
+/// <reference path="./toolbar/main.ts" />
 
-var dependencies = ['ngRoute', 'ngMaterial', 'chart'];
+var dependencies = ['ngRoute', 'ngMaterial', 'chart', 'toolbar'];
 
 var app = angular.module('hcc', dependencies)
 

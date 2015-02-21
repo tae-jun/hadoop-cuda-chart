@@ -1235,7 +1235,7 @@ interface JQueryStatic {
     /**
      * Determine the internal JavaScript [[Class]] of an object.
      * 
-     * @param obj Object to get the internal JavaScript [[Class]] of.
+     * @param obj Object to getData the internal JavaScript [[Class]] of.
      */
     type(obj: any): string;
 
@@ -1353,7 +1353,7 @@ interface JQuery {
     /**
      * Get the value of an attribute for the first element in the set of matched elements.
      *
-     * @param attributeName The name of the attribute to get.
+     * @param attributeName The name of the attribute to getData.
      */
     attr(attributeName: string): string;
     /**
@@ -1416,7 +1416,7 @@ interface JQuery {
     /**
      * Get the value of a property for the first element in the set of matched elements.
      *
-     * @param propertyName The name of the property to get.
+     * @param propertyName The name of the property to getData.
      */
     prop(propertyName: string): any;
     /**
@@ -3592,26 +3592,26 @@ interface JQuery {
     children(selector?: string): JQuery;
 
     /**
-     * For each element in the set, get the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
+     * For each element in the set, getData the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
      * 
      * @param selector A string containing a selector expression to match elements against.
      */
     closest(selector: string): JQuery;
     /**
-     * For each element in the set, get the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
+     * For each element in the set, getData the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
      * 
      * @param selector A string containing a selector expression to match elements against.
      * @param context A DOM element within which a matching element may be found. If no context is passed in then the context of the jQuery set will be used instead.
      */
     closest(selector: string, context?: Element): JQuery;
     /**
-     * For each element in the set, get the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
+     * For each element in the set, getData the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
      * 
      * @param obj A jQuery object to match elements against.
      */
     closest(obj: JQuery): JQuery;
     /**
-     * For each element in the set, get the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
+     * For each element in the set, getData the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
      * 
      * @param element An element to match elements against.
      */

@@ -15,9 +15,13 @@
     ],
     "files": [
         "src/app.ts",
+        "src/chart/app/chartOptions.ts",
+        "src/chart/config/chartOptions.ts",
         "src/chart/controllers/ChartCtrl.ts",
         "src/chart/main.ts",
         "src/chart/services/chartService.ts",
+        "src/toolbar/controllers/toolbarCtrl.ts",
+        "src/toolbar/main.ts",
         "scripts/typings/angularjs/angular-animate.d.ts",
         "scripts/typings/angularjs/angular-route.d.ts",
         "scripts/typings/angularjs/angular.d.ts",

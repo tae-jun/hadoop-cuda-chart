@@ -14,7 +14,8 @@ module config {
 
     export var route = {
         bowerDir: path.resolve(__dirname, '../../web/bower_components'),
-        distDir: path.resolve(__dirname, '../../web/dist')
+        distDir: path.resolve(__dirname, '../../web/dist'),
+        imgDir: path.resolve(__dirname, '../../web/img')
     };
 }
 
