@@ -28,15 +28,21 @@ module chart {
                     var series = [];
 
                     mappers.forEach((mapper:any, index) => {
-                        series.push({
+                        var record = {
                             name: 'Mapper ' + index,
-                            data: [{
-                                x: index,
-                                low: mapper.start,
-                                high: mapper.end
-                            }],
+                            data: [],
                             index: index
-                        })
+                        };
+
+                        mapper.logs.forEach((log:any)=> {
+                            record.data.push({
+                                x: index,
+                                low: log.start,
+                                high: log.end
+                            });
+                        });
+
+                        series.push(record);
                     });
 
                     this.series = series;
@@ -77,6 +83,13 @@ module chart {
             });
 
             this.setChart(this.series);
+        }
+
+        splitMapper(value:boolean) {
+            /**
+             * TODO:
+             * Splitable mapper
+             */
         }
     }
 
