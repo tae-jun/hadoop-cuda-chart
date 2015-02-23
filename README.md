@@ -32,3 +32,12 @@ sudo apt-get install nodejs
 ```
 ##### Note
 - Version 0.12.x is not compatible with mongodb driver yet (BSON problem)
+
+Build
+--------------------------------------------------
+```sh
+git clone https://github.com/tae-jun/hadoop-cuda-chart.git
+cd hadoop-cuda-chart
+sudo make install
+make
+```

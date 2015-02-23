@@ -1,0 +1,3 @@
+default:
+	@npm install
+	@gulp
