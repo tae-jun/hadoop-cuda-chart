@@ -41,3 +41,26 @@ cd hadoop-cuda-chart
 sudo make install
 make
 ```
+
+Usage
+--------------------------------------------------
+##### 1. Run server
+```sh
+cd server
+sudo node src/app.js
+```
+
+##### 2. Insert log
+```sh
+cd client
+node src/app.js -p $path/where/log/files/are
+```
+###### *Note:*
+- Do not use "~" (which means home directory) on path option
+- You can change default log directory path by `vi client/config.js`
+
+##### 3. Run Web application
+[localhost](http://localhost) - **MUST OPEN WITH CHROME**
+
+
+
