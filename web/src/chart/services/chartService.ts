@@ -71,7 +71,7 @@ module chart {
                 });
             else if (by == 'end')
                 this.series.sort((a, b) => {
-                    return a.data[0].high - b.data[0].high;
+                    return a.data[a.data.length - 1].high - b.data[b.data.length - 1].high;
                 });
             else
                 this.series.sort((a, b) => {
@@ -79,7 +79,9 @@ module chart {
                 });
 
             this.series.forEach((value, i) => {
-                value.data[0].x = i;
+                value.data.forEach((val)=> {
+                    val.x = i;
+                });
             });
 
             this.setChart(this.series);
