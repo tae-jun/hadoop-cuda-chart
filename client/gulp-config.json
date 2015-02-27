@@ -1,9 +1,0 @@
-{
-  "src": {
-    "ts": ["src/**/*.ts", "scripts/**/*.d.ts"]
-  },
-  "tscOptions" : {
-    "module": "commonjs",
-    "target": "ES5"
-  }
-}
