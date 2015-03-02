@@ -3,17 +3,13 @@ import async = require('async');
 var http = require('http');
 import path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
-
-import socketIO = require('socket.io');
+var logger:any = require('morgan');
+var bodyParser:any = require('body-parser');
 
 import config = require('./config');
 import mongo = require('./mongo/main');
 
 export var app:express.Application = express();
-var server = http.createServer(app);
-export var io:SocketIO.Server = socketIO(server);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -37,10 +33,7 @@ async.series([
         app.use('/', require('./route/index'));
 
         // Start web & socket.io server
-        server.listen(config.web.port, ()=> {
-            console.log('+++ Web & Socket.io is listening on port %d', config.web.port);
-
-            // Socket.io route
-            require('./socket/main');
+        app.listen(config.web.port, ()=> {
+            console.log('+++ Web app server is now listening on port %d', config.web.port);
         });
     });
