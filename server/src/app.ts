@@ -3,8 +3,8 @@ import async = require('async');
 var http = require('http');
 import path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
+var logger:any = require('morgan');
+var bodyParser:any = require('body-parser');
 
 import socketIO = require('socket.io');
 
