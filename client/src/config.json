@@ -1,0 +1,10 @@
+{
+  "socket": {
+    "host": "ktj7147.iptime.org",
+    "port": 10000
+  },
+  "historyApi": {
+    "host": "node01",
+    "port": 19888
+  }
+}

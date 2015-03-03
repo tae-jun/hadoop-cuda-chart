@@ -24,3 +24,10 @@ gulp.task('build:ts', function () {
 gulp.task('clean', function (cb) {
     del(['src/**/*.js'], cb);
 });
+
+gulp.task('watch', function () {
+
+    gulp.watch(src.ts, function () {
+        runSequence('build:ts');
+    });
+});
