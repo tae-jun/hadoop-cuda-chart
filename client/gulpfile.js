@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     tsc = require('gulp-tsc'),
+    plumber = require('gulp-plumber'),
     runSequence = require('run-sequence'),
     del = require('del');
 
@@ -15,6 +16,7 @@ gulp.task('build', ['build:ts']);
 
 gulp.task('build:ts', function () {
     return gulp.src(src.ts, {base: '.'})
+        .pipe(plumber())
         .pipe(tsc(tscOptions))
         .pipe(gulp.dest('.'));
 });

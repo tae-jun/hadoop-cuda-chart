@@ -1,6 +1,7 @@
 module config {
-    export var parser = {
-        hadoopOutPath: '/Users/jun/hadoopOut/'
+    export var socket = {
+        //webHost: 'ktj7147.iptime.org'
+        webHost: 'localhost'
     }
 }
 

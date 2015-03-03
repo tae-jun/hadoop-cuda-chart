@@ -1,24 +1,36 @@
-/// <reference path="../../scripts/_references.d.ts"/>
-
+import http = require('http');
 import socketIOClient = require('socket.io-client');
+import configAll = require('../config');
+import config = configAll.socket;
 
-export function send(data, callback?:Function) {
-    console.log('=== Connecting...');
-    var socket = socketIOClient('http://localhost');
-    socket.on('connect', ()=> {
-        console.log('+++ Socket.io connected');
-        // Send data
-        socket.emit('log', data);
-        // Return data from server
-        socket.on('done', ()=>{
-            console.log('+++ Data sent to server');
-            if (callback)
-                callback();
+console.log('=== Connecting...');
+var socket = socketIOClient('http://' + config.webHost);
+
+socket.on('connect', ()=> {
+    console.log('+++ Socket.io connected');
+});
+
+socket.on('error', (err)=> {
+    console.error('--- Socket connection error');
+    console.error(err);
+});
+
+socket.on('api', (data)=> {
+    console.log('+++ API request');
+    console.log(data);
+
+    // Send request to map reduce job history server
+    http.get('http://node01:19888' + data.get, function (res) {
+        var body = '';
+        res.on('data', function (chunk) {
+            body += chunk;
         });
-    });
+        res.on('end', function () {
+            console.log(body);
 
-    socket.on('error', (err)=> {
-        console.log('--- Socket connection error');
-        console.log(err);
+            socket.emit('api', {data: body});
+        });
+    }).on('error', function (e) {
+        console.log("Got error: " + e.message);
     });
-}
+});

@@ -1,5 +1,0 @@
-class HadoopData {
-
-}
-
-export = HadoopData;
