@@ -3,8 +3,8 @@ import socketIOClient = require('socket.io-client');
 import api = require('../historyApi/main');
 var config:any = global.config.socket;
 
-console.log('=== Connecting...');
 var socket = socketIOClient('http://' + config.host + ':' + config.port);
+console.log('=== Connecting...');
 
 socket.on('connect', ()=> {
     console.log('+++ Socket.io connected');
@@ -15,11 +15,12 @@ socket.on('error', (err)=> {
     console.error(err);
 });
 
-socket.on('api', (data)=> {
+socket.on('api', (url, fn)=> {
     console.log('+++ API request');
-    console.log(data);
+    console.log('url: %s', url);
 
-    api.get(data, (res)=> {
+    api.get(url, (res)=> {
         console.log(res);
+        fn(res);
     });
 });

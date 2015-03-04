@@ -6,11 +6,7 @@ var io:SocketIO.Server = require('../app').io;
 io.on('connection', (socket)=> {
     console.log('+++ New incoming socket.io connection');
 
-    socket.emit('api', {get: '/ws/v1/history'});
-
-    // Get log data from client
-    socket.on('api', (data)=> {
-        console.log('+++ On "api"');
+    socket.emit('api', '/ws/v1/history', (data)=> {
         console.log(data);
     });
 });
