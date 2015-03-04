@@ -17,16 +17,6 @@ io.on('connection', (_socket)=> {
         console.log('=== Socket disconnected');
         socket = null;
     });
-
-
-    /**
-     * TODO:
-     * DELETE HERE
-     */
-    request('/ws/v1/history', (err, data)=> {
-        console.log('+++ Got history info');
-        console.log(data);
-    });
 });
 
 /**
@@ -37,8 +27,9 @@ io.on('connection', (_socket)=> {
 export function request(url:string, callback:(err, data)=>void) {
     if (socket == null)
         return callback(new Error('Socket is closed'), null);
-    var start = new Date().getTime();
 
+    var start = new Date().getTime();
+    // Request to client on network with hadoop history server
     socket.emit('api', url, (data)=> {
         callback(null, data);
         var end = new Date().getTime();

@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     tsc = require('gulp-tsc'),
     plumber = require('gulp-plumber'),
+    server = require('gulp-express'),
     runSequence = require('run-sequence'),
     del = require('del');
 
@@ -29,5 +30,13 @@ gulp.task('watch', function () {
 
     gulp.watch(src.ts, function () {
         runSequence('build:ts');
+    });
+});
+
+gulp.task('server', function () {
+    server.run(['src/app.js']);
+
+    gulp.watch(src.ts, function () {
+        runSequence('build:ts', 'server');
     });
 });

@@ -1,0 +1,10 @@
+{
+  "web": {
+    "port": 10000
+  },
+  "route": {
+    "bowerDir": "web/bower_components",
+    "distDir": "web/dist",
+    "imgDir": "web/img"
+  }
+}
