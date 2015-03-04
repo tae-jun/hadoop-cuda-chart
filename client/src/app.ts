@@ -19,6 +19,6 @@ socket.onApiRequest((url, fn)=> {
         // Send response
         fn(res);
         var end = new Date().getTime();
-        console.log('+++ GET %s - %d', url, (end - start));
+        console.log('+++ GET %s - %dms', url, (end - start));
     });
 });
