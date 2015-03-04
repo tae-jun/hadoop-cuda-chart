@@ -2,7 +2,7 @@ import path = require('path');
 
 module config {
     export var web = {
-        port: 80
+        port: 10000
     };
 
     export var socket = {};
