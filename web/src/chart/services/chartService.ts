@@ -79,7 +79,7 @@ module chart {
                 });
 
             this.series.forEach((value, i) => {
-                value.data.forEach((val)=> {
+                value.data.forEach((val:any)=> {
                     val.x = i;
                 });
             });

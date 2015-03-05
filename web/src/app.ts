@@ -1,21 +1,40 @@
 /// <reference path="./chart/main.ts" />
 /// <reference path="./toolbar/main.ts" />
+/// <reference path="./common/main.ts" />
 
-var dependencies = ['ngRoute', 'ngMaterial', 'chart', 'toolbar'];
+var dependencies =
+    [
+        'ngRoute',
+        'ngMaterial',
+        'chart',
+        'toolbar',
+        'common'
+    ];
 
 var app = angular.module('hcc', dependencies)
 
-    .config(($routeProvider: ng.route.IRouteProvider) => {
-    $routeProvider
-        .when('/chart', {
-        templateUrl: 'tpl/chart.tpl.html'
+    .config(($routeProvider:ng.route.IRouteProvider) => {
+        $routeProvider
+            .when('/chart', {
+                templateUrl: 'tpl/chart.tpl.html'
+            })
+
+            .otherwise({
+                redirectTo: '/chart'
+            });
     })
 
-        .otherwise({
-        redirectTo: '/chart'
-    });
-})
+    .run((chartService, $window, hadoopService:common.HadoopService) => {
+        $window.chartService = chartService;
+        $window.hadoopService = hadoopService;
 
-    .run((chartService, $window) => {
-    $window.chartService = chartService;
-});
+        hadoopService.request('/history/info')
+            .then(
+            function (data) {
+                console.log(data);
+            },
+            function (err) {
+                console.log(err);
+            }
+        );
+    });
