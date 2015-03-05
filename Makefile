@@ -10,6 +10,7 @@ cli:
 	@$(MAKE) -C ./client
 ser:
 	git pull
+	@$(MAKE) -C ./web
 	@$(MAKE) -C ./server
 www:
 	git pull
