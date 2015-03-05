@@ -15,11 +15,11 @@ module common {
          *
          * @param url ex) /history/info
          */
-        request(url:string):ng.IPromise {
+        request(url:string):ng.IPromise<any> {
             var deferred = this.$q.defer();
 
             this.$http.get(url)
-                .success((res)=> {
+                .success((res:any)=> {
                     if (res.err)
                         return deferred.reject(res.msg);
                     deferred.resolve(res.data);
