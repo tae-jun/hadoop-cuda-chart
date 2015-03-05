@@ -24,17 +24,11 @@ var app = angular.module('hcc', dependencies)
             });
     })
 
-    .run((chartService, $window, hadoopService:common.HadoopService) => {
+    .run((chartService, $window, hadoopService:common.HadoopService, jobService:common.JobService) => {
         $window.chartService = chartService;
         $window.hadoopService = hadoopService;
+        $window.jobService = jobService;
 
-        hadoopService.request('/history/info')
-            .then(
-            function (data) {
-                console.log(data);
-            },
-            function (err) {
-                console.log(err);
-            }
-        );
+        jobService.list().then((data)=>console.log(data));
+        jobService.getTasks('job_1425368798462_0002').then((data)=>console.log(data));
     });

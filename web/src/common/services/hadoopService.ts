@@ -25,6 +25,7 @@ module common {
                     deferred.resolve(res.data);
                 })
                 .error((err)=> {
+                    console.error(err);
                     deferred.reject('hadoopService: HTTP GET failure');
                 });
 
