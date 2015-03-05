@@ -30,7 +30,8 @@ export function request(url:string, callback:(err, data)=>void) {
 
     var start = new Date().getTime();
     // Request to client on network with hadoop history server
-    socket.emit('api', url, (data)=> {
+    socket.emit('api', url, (dataStr)=> {
+        var data = JSON.parse(dataStr);
         callback(null, data);
         var end = new Date().getTime();
         console.log('+++ History API %s - %dms', url, (end - start));
