@@ -9,8 +9,7 @@ router
         api.request('/ws/v1/history/' + req.params[0], (err, data)=> {
             if (err)
                 console.error(err);
-            console.log(typeof data);
-            console.log(data);
+
             res.json(new Form(err, data));
         });
     });

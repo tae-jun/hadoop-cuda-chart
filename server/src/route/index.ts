@@ -1,6 +1,6 @@
 import path = require('path');
 import express = require('express');
-var config = require('../config').route;
+var config = global.config.route;
 
 config.distDir = path.resolve(__dirname, '../../../', config.distDir);
 config.imgDir = path.resolve(__dirname, '../../../', config.imgDir);
