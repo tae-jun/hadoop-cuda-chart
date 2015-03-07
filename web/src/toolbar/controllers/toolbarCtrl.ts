@@ -29,8 +29,8 @@ module toolbar {
             };
 
 
-            $scope.$on('toolbarService:setTitle', (event, title) => {
-                $scope.title = title;
+            $scope.$on('toolbarService:setTitle', (event, titles) => {
+                $scope.titles = titles
             });
         }
     }

@@ -54,9 +54,12 @@
 <div layout="column" flex id="content">
     <md-toolbar layout="row" ng-controller="toolbarCtrl">
         <div class="md-toolbar-tools">
-            <span>{{title}}</span>
+            <span ng-repeat="title in titles">
+                {{title}}
+                <img ng-if="!$last" src="img/docArrow.png" style="width: 16px;height: 16px;margin-right: 10px">
+            </span>
+
             <span flex></span>
-            <md-button ng-click="clickSort($event)">sort</md-button>
         </div>
     </md-toolbar>
 

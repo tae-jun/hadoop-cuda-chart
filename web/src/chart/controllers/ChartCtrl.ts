@@ -15,7 +15,7 @@ module chart {
                 $mdSidenav(menuId).toggle();
             };
 
-            toolbarService.setTitle('Chart > ' + $routeParams.jobId);
+            toolbarService.setTitle('Chart', $routeParams.jobId);
 
             tasks = tasks.tasks.task;
 
