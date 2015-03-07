@@ -33,7 +33,7 @@ $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
 ##### 3. Run client to use history server REST API
 ```sh
 cd client
-node src/app.js
+node src/app.js [options]
 ```
 *NOTE: Client must be on same network area with namenode*
 ######Options
