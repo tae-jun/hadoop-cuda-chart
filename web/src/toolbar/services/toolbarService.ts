@@ -6,8 +6,7 @@ module toolbar {
             this.$rootScope = $rootScope;
         }
 
-        setTitle(title:string);
-        setTitle(...titles:string[]) {
+        setTitle(...titles:any[]) {
             if (typeof titles == 'string')
                 titles = [titles];
 
