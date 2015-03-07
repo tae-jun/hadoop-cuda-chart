@@ -44,8 +44,7 @@ var app = angular.module('hcc', dependencies)
             })
 
             .when('/chart/:jobId', {
-                template: '<div></div>',
-                //templateUrl: 'tpl/chart.tpl.html',
+                templateUrl: 'tpl/chart.tpl.html',
                 controller: 'chartCtrl',
                 resolve: {
                     tasks: ($q:ng.IQService, $route, jobService:common.JobService)=> {

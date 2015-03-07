@@ -10,7 +10,9 @@ module chart {
                 $mdSidenav(menuId).toggle();
             };
             //chartService.init();
-            console.log('ChartCtrl');
+
+            tasks = tasks.task;
+
             console.log(tasks);
         }
     }
