@@ -27,11 +27,12 @@ module toolbar {
                 chartService.sort(clickedItem.name);
                 $mdBottomSheet.hide(clickedItem);
             };
-        }
-    }
 
-    export interface IToolbarScope extends ng.IScope {
-        clickSort($event);
+
+            $scope.$on('toolbarService:setTitle', (event, title) => {
+                $scope.title = title;
+            });
+        }
     }
 
     registerController('toolbarCtrl', ToolbarCtrl);
