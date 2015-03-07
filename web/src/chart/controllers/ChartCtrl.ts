@@ -5,12 +5,13 @@
 module chart {
     export class ChartCtrl {
 
-        constructor($scope:IChartScope, $mdSidenav, chartService:ChartService) {
+        constructor($scope:IChartScope, $mdSidenav, chartService:ChartService, tasks) {
             $scope.toggleSidenav = (menuId) => {
                 $mdSidenav(menuId).toggle();
             };
-
-            chartService.init();
+            //chartService.init();
+            console.log('ChartCtrl');
+            console.log(tasks);
         }
     }
 
