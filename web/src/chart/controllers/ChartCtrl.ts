@@ -12,6 +12,7 @@ module chart {
             //chartService.init();
 
             tasks = tasks.tasks.task;
+
             chartService.setChart(tasks);
             console.log(tasks);
         }

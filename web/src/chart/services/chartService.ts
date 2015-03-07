@@ -27,7 +27,9 @@ module chart {
             });
 
             var options = $.extend(chartOptions, {series: this.series});
-            $('#chartContainer').highcharts(options);
+            setTimeout(()=> {
+                $('#chartContainer').highcharts(options);
+            });
         }
 
         /**
