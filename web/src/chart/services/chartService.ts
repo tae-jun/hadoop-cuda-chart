@@ -10,8 +10,8 @@ module chart {
             this.http = $http;
             this.series = [];
         }
-        
-        private setChart(tasks:any[]):void {
+
+        public setChart(tasks:any[]):void {
             this.series = [];
             tasks.forEach((task, index)=> {
                 var record = {
