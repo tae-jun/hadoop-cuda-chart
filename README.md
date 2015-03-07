@@ -2,36 +2,9 @@ Hadoop CUDA Performance Chart
 ==================================================
 [Parallel Software Design Lab](http://parlab.uos.ac.kr), University of Seoul
 
-Installation
+Requirements
 --------------------------------------------------
-- Mongo DB
-- Node JS
-
-#### Mongo DB
-
-##### Install
-```sh
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
-sudo apt-get update
-sudo apt-get install -y mongodb-org
-```
-##### Run
-```sh
-sudo service mongod start
-```
-##### References
-[Install Mongo DB on Ubuntu](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/)
-
-
-
-#### Node JS
-##### Install
-```sh
-sudo apt-get install nodejs
-```
-##### Note
-- Version 0.12.x is not compatible with mongodb driver yet (BSON problem)
+- [Node JS](https://nodejs.org/)
 
 Build
 --------------------------------------------------
@@ -44,23 +17,38 @@ make
 
 Usage
 --------------------------------------------------
-##### 1. Run server
+##### 1. Run web server
 ```sh
 cd server
-sudo node src/app.js
+node src/app.js
 ```
+*NOTE: Your command may need to be profixed with sudo*
 
-##### 2. Insert log
+##### 2. Start history server
+```sh
+$HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+```
+*NOTE: You better execute this command on namenode*
+
+##### 3. Run client to use history server REST API
 ```sh
 cd client
-node src/app.js -p $path/where/log/files/are
+node src/app.js
 ```
-###### *Note:*
-- Do not use "~" (which means home directory) on path option
-- You can change default log directory path by `vi client/config.js`
+*NOTE: Client must be on same network area with namenode*
+######Options
+- [-h | --host] web server address
+- [-p | --port] web server port
+- [--hHost] history server address
+- [--hPort] history server port
 
-##### 3. Run Web application
-[localhost](http://localhost) - **MUST OPEN WITH CHROME**
+*NOTE: You can also change options on "client/src/config.json" file*
+
+
+##### 4. Run Web application
+http://{ WEB_SERVER_HOSTNAME }:10000/
+
+*NOTE: You better open with CHROME browser*
 
 
 
