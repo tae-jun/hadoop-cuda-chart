@@ -19,7 +19,8 @@ module chart {
                     data: [{
                         x: index,
                         low: task.startTime,
-                        high: task.finishTime
+                        high: task.finishTime,
+                        eTime: task.elapsedTime
                     }]
                 };
 

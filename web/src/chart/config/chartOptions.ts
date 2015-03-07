@@ -27,9 +27,10 @@ module chart {
             enabled: false
         },
         tooltip: {
-            formatter: function() {
+            formatter: function () {
+                console.log(this);
                 return '<b>' + this.series.name + '</b><br>'
-                    + '<p>takes: ' + (this.point.high - this.point.low) + 'ms</p><br>'
+                    + '<p>elapsed time: ' + (this.point.high - this.point.low) + 'ms</p><br>'
                     + '<p>start: ' + this.point.low + '</p><br>'
                     + '<p>end: ' + this.point.high + '</p><br>'
             }
