@@ -1,4 +1,5 @@
 default:
+	git pull
 	@$(MAKE) -C ./server
 	@$(MAKE) -C ./web
 	@$(MAKE) -C ./client
