@@ -32,7 +32,7 @@ socket.onTasks((jobId, fn)=> {
     api.getTasks(jobId, (err, nodeTasks)=> {
         console.log(nodeTasks);
         // Send response
-        fn(nodeTasks);
+        fn(JSON.stringify(nodeTasks));
         var end = new Date().getTime();
         console.log('+++ GET TASKS %s - %dms', jobId, (end - start));
     });

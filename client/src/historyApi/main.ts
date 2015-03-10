@@ -80,7 +80,6 @@ export function getTasks(jobId:string, callback:(err, nodeTasks)=>void) {
                 });
             },
             function (taskAttempts, cb) {
-                console.log(taskAttempts);
                 taskAttempts.forEach((taskAttempt:any)=> {
                     if (nodeTasks[taskAttempt.nodeHttpAddress] == undefined)
                         nodeTasks[taskAttempt.nodeHttpAddress] = [];

@@ -14,7 +14,7 @@ io.on('connection', (_socket)=> {
     });
 
     socket.on('disconnect', ()=> {
-        console.log('=== Socket disconnected');
+        console.log('--- Socket disconnected');
         socket = null;
     });
 });
