@@ -73,10 +73,10 @@ export function getTasks(jobId:string, callback:(err, nodeTasks)=>void) {
                                 });
                             });
                     });
+                });
 
-                    async.parallel(parFns, (err, taskAttempts)=> {
-                        cb(err, taskAttempts);
-                    });
+                async.parallel(parFns, (err, taskAttempts)=> {
+                    cb(err, taskAttempts);
                 });
             },
             function (taskAttempts, cb) {
