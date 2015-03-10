@@ -1,4 +1,5 @@
 import http = require('http');
+import async = require('async');
 var config:any = global.config.historyApi;
 
 export function get(reqString:string, callback:(res)=>void) {
