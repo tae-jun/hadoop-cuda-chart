@@ -17,6 +17,7 @@ module chart {
 
             toolbarService.setTitle('Chart', $routeParams.jobId);
 
+            console.log(data);
 
             var tasks = data.tasks;
             var nodeTasks = data.nodeTasks;
