@@ -93,7 +93,7 @@ export function getTasks(jobId:string, callback:(err, nodeTasks)=>void) {
         ],
         function (err, result) {
             if (err)
-                return callback(err, err.message);
+                return callback(1, err.message);
 
             callback(null, result);
         });

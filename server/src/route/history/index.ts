@@ -11,6 +11,8 @@ router
             if (err)
                 console.error(err);
 
+            console.log(data);
+
             res.json(new Form(err, data));
         });
     })
