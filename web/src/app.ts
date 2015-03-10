@@ -34,7 +34,7 @@ var app = angular.module('hcc', dependencies)
                 templateUrl: 'tpl/chart.tpl.html',
                 controller: 'chartCtrl',
                 resolve: {
-                    tasks: ($q:ng.IQService, $route, jobService:common.JobService)=> {
+                    data: ($q:ng.IQService, $route, jobService:common.JobService)=> {
                         var jobId = $route.current.params.jobId;
                         return jobService.getTasks(jobId);
                     }

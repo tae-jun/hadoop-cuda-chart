@@ -25,6 +25,7 @@ export function get(reqString:string, callback:(res)=>void) {
 }
 
 export function getTasks(jobId:string, callback:(err, nodeTasks)=>void) {
+    var tasks;
     var nodeTasks = {};
 
     async.waterfall([
@@ -42,7 +43,7 @@ export function getTasks(jobId:string, callback:(err, nodeTasks)=>void) {
                         res.on('end', ()=> {
                             body = JSON.parse(body);
 
-                            var tasks = body.tasks.task;
+                            tasks = body.tasks.task;
                             cb(null, tasks);
                         });
                     });
@@ -87,13 +88,13 @@ export function getTasks(jobId:string, callback:(err, nodeTasks)=>void) {
                     nodeTasks[taskAttempt.nodeHttpAddress].push(taskAttempt);
                 });
 
-                cb(null, nodeTasks);
+                cb(null, {tasks: tasks, nodeTasks: nodeTasks});
             }
         ],
         function (err, result) {
             if (err)
                 return callback(err, err.message);
 
-            callback(null, nodeTasks);
+            callback(null, result);
         });
 }

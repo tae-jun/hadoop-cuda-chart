@@ -20,6 +20,7 @@ socket.onApiRequest((url, fn)=> {
         console.log(res);
         // Send response
         fn(res);
+
         var end = new Date().getTime();
         console.log('+++ GET %s - %dms', url, (end - start));
     });
@@ -29,10 +30,10 @@ socket.onTasks((jobId, fn)=> {
     console.log('+++ Incoming "tasks" request - %s', jobId);
     var start = new Date().getTime();
 
-    api.getTasks(jobId, (err, nodeTasks)=> {
-        console.log(nodeTasks);
+    api.getTasks(jobId, (err, result)=> {
         // Send response
-        fn(JSON.stringify(nodeTasks));
+        fn(JSON.stringify(result));
+
         var end = new Date().getTime();
         console.log('+++ GET TASKS %s - %dms', jobId, (end - start));
     });

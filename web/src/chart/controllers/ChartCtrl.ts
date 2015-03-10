@@ -8,7 +8,7 @@ module chart {
         constructor($scope:IChartScope,
                     $mdSidenav,
                     chartService:ChartService,
-                    tasks,
+                    data,
                     toolbarService:toolbar.ToolbarService,
                     $routeParams) {
             $scope.toggleSidenav = (menuId) => {
@@ -18,10 +18,12 @@ module chart {
             toolbarService.setTitle('Chart', $routeParams.jobId);
 
 
-            tasks = tasks.tasks.task;
+            var tasks = data.tasks;
+            var nodeTasks = data.nodeTasks;
 
             chartService.setChart(tasks);
             console.log(tasks);
+            console.log(nodeTasks);
         }
     }
 
