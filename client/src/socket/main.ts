@@ -1,4 +1,3 @@
-import http = require('http');
 import socketIOClient = require('socket.io-client');
 var config:any = global.config.socket;
 
@@ -16,4 +15,8 @@ socket.on('error', (err)=> {
 
 export function onApiRequest(listener:(url, fn)=>void) {
     socket.on('api', listener);
+}
+
+export function onTasks(listener:(jobId, fn)=>void) {
+    socket.on('tasks', listener);
 }

@@ -37,3 +37,17 @@ export function request(url:string, callback:(err, data)=>void) {
         console.log('+++ History API %s - %dms', url, (end - start));
     });
 }
+
+export function requestTasks(jobId:string, callback:(err, data)=>void) {
+    if (socket == null)
+        return callback(new Error('Socket is closed'), null);
+
+    var start = new Date().getTime();
+    // Request to client on network with hadoop history server
+    socket.emit('tasks', jobId, (dataStr)=> {
+        var data = JSON.parse(dataStr);
+        callback(null, data);
+        var end = new Date().getTime();
+        console.log('+++ History API TASKS %s - %dms', jobId, (end - start));
+    });
+}

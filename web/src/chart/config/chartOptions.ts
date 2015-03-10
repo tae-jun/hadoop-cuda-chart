@@ -30,8 +30,8 @@ module chart {
             formatter: function () {
                 return '<b>' + this.series.name + '</b><br>'
                     + '<p>elapsed time: ' + this.point.eTime + 'ms</p><br>'
-                    + '<p>start: ' + this.point.low + '</p><br>'
-                    + '<p>end: ' + this.point.high + '</p><br>'
+                    + '<p>start: ' + new Date(this.point.low) + '</p><br>'
+                    + '<p>end: ' + new Date(this.point.high) + '</p><br>'
             }
         },
         series: []
