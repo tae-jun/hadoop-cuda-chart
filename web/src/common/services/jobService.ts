@@ -20,6 +20,20 @@ module common {
                 .then((res)=> {
                     console.log('job promise processing...');
                     console.log(res);
+                    //
+                    //var nodeKeys = Object.keys(res.nodeTasks);
+                    //nodeKeys.forEach((key)=> {
+                    //    var Tasks:any[] = nodeKeys[key];
+                    //    Tasks.forEach((task)=> {
+                    //
+                    //    });
+                    //});
+                    //
+                    //
+                    //return {
+                    //    tasks
+                    //}
+                    return res;
                 });
         }
     }

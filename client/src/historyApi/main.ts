@@ -70,6 +70,7 @@ export function getTasks(jobId:string, callback:(err, nodeTasks)=>void) {
                                     body = JSON.parse(body);
 
                                     var taskAttempt = body.taskAttempts.taskAttempt[0];
+                                    task['attempt'] = taskAttempt;
                                     parCb(null, taskAttempt);
                                 });
                             });
