@@ -41,10 +41,16 @@
                     class="job-nav-btn"
                     layout="row"
                     ng-repeat="job in jobs"
-                    href="#/chart/{{job.id}}">
-                <span style="width: 20px"></span>
+                    href="#/chart/{{job.id}}"
+                    style="padding-left: 15px">
                 <span flex>{{job.name}}</span>
             </md-button>
+
+            <pl-job-button
+                    ng-repeat="job in jobs"
+                    nodes="job.nodes">
+                job.name
+            </pl-job-button>
         </div>
 
     </md-content>

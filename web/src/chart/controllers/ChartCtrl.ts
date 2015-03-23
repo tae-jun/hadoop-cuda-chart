@@ -25,12 +25,15 @@ module chart {
             chartService.setChart(tasks);
             console.log(tasks);
             console.log(nodeTasks);
+
+            $scope.nodes = nodeTasks;
         }
     }
 
     export interface IChartScope extends ng.IScope {
         toggleSidenav(menuId);
-        chartConfig: any;
+        chartConfig:any;
+        nodes:Object;
     }
 
     registerController('chartCtrl', ChartCtrl);
