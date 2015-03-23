@@ -12,7 +12,7 @@ module nav {
             replace: true,
             link: (scope, elem, attr) => {
                 console.log(attr);
-                console.log(scope.nodeTasks);
+                console.log(scope['nodeTasks']);
             }
         }
     }
