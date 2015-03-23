@@ -6,7 +6,7 @@ module nav {
         constructor($scope, jobService:common.JobService) {
             jobService.list()
                 .then((data)=> {
-                    console.log(data);
+                    console.log('jobList', data);
                     $scope.jobs = data.jobs.job;
                 });
         }

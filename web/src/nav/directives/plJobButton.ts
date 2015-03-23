@@ -11,8 +11,6 @@ module nav {
             templateUrl: 'tpl/plJobButton.tpl.html',
             replace: true,
             link: (scope, elem, attr) => {
-                console.log(attr);
-                console.log(scope['nodeTasks']);
             }
         }
     }
