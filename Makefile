@@ -1,7 +1,7 @@
 default:
 	git pull
-	@$(MAKE) -C ./server
 	@$(MAKE) -C ./web
+	@$(MAKE) -C ./server
 	@$(MAKE) -C ./client
 install:
 	@npm install -g gulp
