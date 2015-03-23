@@ -16,7 +16,11 @@ module common {
         }
 
         getTasks(jobId:string):ng.IPromise<any> {
-            return this.hdpService.request('/history/mapreduce/jobs/' + jobId + '/tasks');
+            return this.hdpService.request('/history/mapreduce/jobs/' + jobId + '/tasks')
+                .then((res)=> {
+                    console.log('job promise processing...');
+                    console.log(res);
+                });
         }
     }
 
