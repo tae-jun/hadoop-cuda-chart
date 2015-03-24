@@ -24,7 +24,7 @@ module common {
             return this.hdpService.request('/history/mapreduce/jobs/' + jobId + '/tasks')
                 .then((res)=> {
                     this.jobCache[jobId] = res;
-                    console.log('%s inserted into job cache');
+                    console.log('%s inserted into job cache', jobId);
                     return res;
                 });
         }
