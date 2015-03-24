@@ -6,7 +6,7 @@ module common {
         private $q:ng.IQService;
         private hdpService:HadoopService;
 
-        private currentJob;
+        private jobCache = {};
 
         constructor(hadoopService:HadoopService, $q) {
             this.$q = $q;
@@ -18,18 +18,15 @@ module common {
         }
 
         getTasks(jobId:string):ng.IPromise<any> {
+            if (this.jobCache[jobId] != undefined)
+                return this.$q.when(this.jobCache[jobId]);
+
             return this.hdpService.request('/history/mapreduce/jobs/' + jobId + '/tasks')
                 .then((res)=> {
-                    this.currentJob = res;
-
-                    console.log('current job', this.currentJob);
+                    this.jobCache[jobId] = res;
 
                     return res;
                 });
-        }
-
-        getCurrentJob() {
-            return this.currentJob;
         }
     }
 

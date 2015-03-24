@@ -18,10 +18,9 @@ module nav {
                     console.log('jobList', data);
                 });
 
-            $scope.$on('$locationChangeSuccess', (newState, oldState)=> {
+            $scope.$on('$locationChangeSuccess', (event, newState, oldState)=> {
                 console.log('newState', newState);
                 console.log('oldState', oldState);
-                console.log('current job in controller', jobService.getCurrentJob());
             });
         }
     }

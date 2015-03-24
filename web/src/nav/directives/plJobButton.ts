@@ -1,7 +1,7 @@
 /// <reference path="../main.ts" />
 
 module nav {
-    export function plJobButtonDirective():ng.IDirective {
+    export function plJobButtonDirective($routeParams):ng.IDirective {
         return {
             restrict: 'E',
             transclude: true,
@@ -12,9 +12,12 @@ module nav {
             replace: true,
             link: (scope, elem, attr) => {
                 console.log(scope['job']);
-                scope.$watch('job.nodeTasks', (newValue, oldValue)=> {
-                    console.log('watch job.nodeTasks', newValue, oldValue);
-                }, true);
+
+                scope.$on('$locationChangeSuccess', (event, newState, oldState)=> {
+                    console.log('newState', newState);
+                    console.log('oldState', oldState);
+                    console.log('routeParams', $routeParams);
+                });
             }
         }
     }
