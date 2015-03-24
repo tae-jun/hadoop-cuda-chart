@@ -3,11 +3,19 @@
 module nav {
     export class JobListCtrl {
 
-        constructor($scope, jobService:common.JobService) {
+        constructor($scope, jobService:common.JobService, $routeParams) {
+            var jobId = $routeParams.jobId;
             jobService.list()
                 .then((data)=> {
-                    console.log('jobList', data);
                     $scope.jobs = data.jobs.job;
+                    $scope.jobs.forEach((job)=> {
+                        if (job['id'] == jobId)
+                            job['selected'] = true;
+                        else
+                            job['selected'] = false;
+                    });
+
+                    console.log('jobList', data);
                 });
         }
     }

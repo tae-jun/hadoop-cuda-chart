@@ -7,7 +7,7 @@
         <span flex ng-transclude></span>
     </md-button>
 
-    <md-button ng-if="nodeTasks" ng-repeat="(key, tasks) in nodeTasks">
+    <md-button ng-repeat="(key, tasks) in job.nodeTasks">
         <span>{{key}}</span>
         <span ng-repeat="task in tasks">
             {{task.id}}

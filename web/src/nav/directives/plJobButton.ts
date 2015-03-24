@@ -6,11 +6,12 @@ module nav {
             restrict: 'E',
             transclude: true,
             scope: {
-                nodeTasks: '=nodes'
+                job: '='
             },
             templateUrl: 'tpl/plJobButton.tpl.html',
             replace: true,
             link: (scope, elem, attr) => {
+                console.log(scope['job']);
             }
         }
     }
