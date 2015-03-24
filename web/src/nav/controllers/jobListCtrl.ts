@@ -10,13 +10,19 @@ module nav {
                     $scope.jobs = data.jobs.job;
                     $scope.jobs.forEach((job)=> {
                         if (job['id'] == jobId)
-                            job['selected'] = true;
-                        else
-                            job['selected'] = false;
+                            return job['selected'] = true;
+
+                        job['selected'] = false;
                     });
 
                     console.log('jobList', data);
                 });
+
+            $scope.$on('$locationChangeSuccess', (newState, oldState)=> {
+                console.log('newState', newState);
+                console.log('oldState', oldState);
+                console.log('current job in controller', jobService.getCurrentJob());
+            });
         }
     }
 
