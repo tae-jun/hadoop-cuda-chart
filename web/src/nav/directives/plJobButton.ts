@@ -15,6 +15,9 @@ module nav {
                 scope.$watch('job.nodeTasks', (newValue, oldValue)=> {
                     console.log('watch job.nodeTasks', newValue, oldValue);
                 }, true);
+                setInterval(()=> {
+                    console.log('JobButtonDirectiveScope', scope['job']);
+                }, 2000);
             }
         }
     }
