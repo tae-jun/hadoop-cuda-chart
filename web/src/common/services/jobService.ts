@@ -6,6 +6,8 @@ module common {
         private $q:ng.IQService;
         private hdpService:HadoopService;
 
+        private currentJob;
+
         constructor(hadoopService:HadoopService, $q) {
             this.$q = $q;
             this.hdpService = hadoopService;
@@ -18,23 +20,16 @@ module common {
         getTasks(jobId:string):ng.IPromise<any> {
             return this.hdpService.request('/history/mapreduce/jobs/' + jobId + '/tasks')
                 .then((res)=> {
-                    console.log('job promise processing...');
-                    console.log(res);
-                    //
-                    //var nodeKeys = Object.keys(res.nodeTasks);
-                    //nodeKeys.forEach((key)=> {
-                    //    var Tasks:any[] = nodeKeys[key];
-                    //    Tasks.forEach((task)=> {
-                    //
-                    //    });
-                    //});
-                    //
-                    //
-                    //return {
-                    //    tasks
-                    //}
+                    this.currentJob = res;
+
+                    console.log('current job', this.currentJob);
+
                     return res;
                 });
+        }
+
+        getCurrentJob() {
+            return this.currentJob;
         }
     }
 

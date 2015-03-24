@@ -10,6 +10,7 @@ module chart {
                     chartService:ChartService,
                     data,
                     toolbarService:toolbar.ToolbarService,
+                    jobService:common.JobService,
                     $routeParams) {
             $scope.toggleSidenav = (menuId) => {
                 $mdSidenav(menuId).toggle();
@@ -27,6 +28,12 @@ module chart {
             console.log(nodeTasks);
 
             $scope.nodes = nodeTasks;
+
+            $scope.$on('$locationChangeSuccess', (newState, oldState)=> {
+                console.log('newState', newState);
+                console.log('oldState', oldState);
+                console.log('current job in controller', jobService.getCurrentJob());
+            });
         }
     }
 
