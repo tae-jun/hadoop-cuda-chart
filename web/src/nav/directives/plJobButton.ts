@@ -14,15 +14,17 @@ module nav {
             link: (scope, elem, attr) => {
                 scope.$on('$locationChangeSuccess', (event, newState, oldState)=> {
                     var jobId = $route.current.params['jobId'];
+
                     if (jobId != scope['job']['id'])
                         return;
 
                     console.log('newState', newState);
                     console.log('oldState', oldState);
-                    
+
                     jobService.getTasks(jobId)
                         .then((res)=> {
                             console.log('job button directive job service get tasks', res);
+                            scope['nodeTasks'] = res['nodeTasks'];
                         })
                 });
             }
