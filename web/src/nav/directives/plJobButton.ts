@@ -13,10 +13,13 @@ module nav {
             replace: true,
             link: (scope, elem, attr) => {
                 scope.$on('$locationChangeSuccess', (event, newState, oldState)=> {
+                    var jobId = $route.current.params['jobId'];
+                    if (jobId != scope['job']['id'])
+                        return;
+
                     console.log('newState', newState);
                     console.log('oldState', oldState);
-                    console.log('route current params', $route.current.params);
-                    var jobId = $route.current.params['jobId'];
+                    
                     jobService.getTasks(jobId)
                         .then((res)=> {
                             console.log('job button directive job service get tasks', res);
