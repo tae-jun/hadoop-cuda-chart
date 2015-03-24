@@ -12,6 +12,9 @@ module nav {
             replace: true,
             link: (scope, elem, attr) => {
                 console.log(scope['job']);
+                scope.$watch('job.nodeTasks', (newValue, oldValue)=> {
+                    console.log('watch job.nodeTasks', newValue, oldValue);
+                }, true);
             }
         }
     }
