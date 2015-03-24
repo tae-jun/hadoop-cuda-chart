@@ -24,7 +24,7 @@ module nav {
                     jobService.getTasks(jobId)
                         .then((res)=> {
                             console.log('job button directive job service get tasks', res);
-                            scope['nodeTasks'] = res['nodeTasks'];
+                            scope['job']['nodeTasks'] = res['nodeTasks'];
                         })
                 });
             }
