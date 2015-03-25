@@ -32,6 +32,7 @@ module chart {
                     + '<p>elapsed time: ' + this.point.eTime + 'ms</p><br>'
                     + '<p>start: ' + new Date(this.point.low) + '</p><br>'
                     + '<p>end: ' + new Date(this.point.high) + '</p><br>'
+                    + '<p>node: ' + this.point.node + '</p><br>'
             }
         },
         series: []
