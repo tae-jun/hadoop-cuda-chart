@@ -28,6 +28,7 @@ module chart {
                 this.series.push(record);
             });
 
+            console.log('sort before', this.series);
             this.series.sort((a, b)=> {
                 if (a.data[0].node < b.data[0].node)
                     return -1;
@@ -36,6 +37,7 @@ module chart {
 
                 return 0;
             });
+            console.log('sort after', this.series);
 
             var options = $.extend(chartOptions, {series: this.series});
             setTimeout(()=> {
