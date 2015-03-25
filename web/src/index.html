@@ -37,15 +37,6 @@
     <md-content flex ng-controller="jobListCtrl">
         <md-subheader class="md-primary">Jobs</md-subheader>
         <div layout="column">
-            <md-button
-                    class="job-nav-btn"
-                    layout="row"
-                    ng-repeat="job in jobs"
-                    href="#/chart/{{job.id}}"
-                    style="padding-left: 15px">
-                <span flex>{{job.name}}</span>
-            </md-button>
-
             <pl-job-button
                     ng-repeat="job in jobs"
                     job="job">
