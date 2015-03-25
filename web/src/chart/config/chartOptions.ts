@@ -28,11 +28,11 @@ module chart {
         },
         tooltip: {
             formatter: function () {
-                return '<b>' + this.series.name + '</b><br>'
+                return '<b>node: ' + this.point.node + '</b><br>'
                     + '<p>elapsed time: ' + this.point.eTime + 'ms</p><br>'
                     + '<p>start: ' + new Date(this.point.low) + '</p><br>'
                     + '<p>end: ' + new Date(this.point.high) + '</p><br>'
-                    + '<p>node: ' + this.point.node + '</p><br>'
+                    + '<p>name: ' + this.series.name + '</p>name: <br>'
             }
         },
         series: []

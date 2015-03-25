@@ -28,6 +28,15 @@ module chart {
                 this.series.push(record);
             });
 
+            this.series.sort((a, b)=> {
+                if (a.data[0].node < b.data[0].node)
+                    return -1;
+                if (a.data[0].node > b.data[0].node)
+                    return 1;
+
+                return 0;
+            });
+
             var options = $.extend(chartOptions, {series: this.series});
             setTimeout(()=> {
                 $('#chartContainer').highcharts(options);
