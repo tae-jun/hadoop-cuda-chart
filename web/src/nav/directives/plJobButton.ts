@@ -16,7 +16,7 @@ module nav {
                     var jobId = $route.current.params['jobId'];
 
                     if (jobId != scope['job']['id'])
-                        return;
+                        return scope['job']['nodeTasks'] = undefined;
 
                     console.log('newState', newState);
                     console.log('oldState', oldState);
