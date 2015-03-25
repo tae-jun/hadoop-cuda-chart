@@ -20,12 +20,15 @@ module chart {
                 toolbarService.setTitle('Chart', jobId);
 
 
-
             var tasks = job.tasks;
             var nodeTasks = job.nodeTasks;
 
             console.log('ChartCtrl', 'job', job);
-            chartService.setChart(tasks);
+
+            if (nodeName)
+                chartService.setChart(nodeTasks[nodeName]);
+            else
+                chartService.setChart(tasks);
 
             $scope.nodes = nodeTasks;
         }
