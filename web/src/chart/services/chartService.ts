@@ -21,7 +21,7 @@ module chart {
                         low: task.startTime,
                         high: task.finishTime,
                         eTime: task.elapsedTime,
-                        node: task.nodeHttpAddress | task.attempt.nodeHttpAddress
+                        node: task.nodeHttpAddress || task.attempt.nodeHttpAddress
                     }]
                 };
 
