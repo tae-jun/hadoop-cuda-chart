@@ -7,10 +7,13 @@
         <span flex ng-transclude></span>
     </md-button>
 
-    <md-button ng-repeat="(key, tasks) in job.nodeTasks">
-        <span>{{key}}</span>
-        <span ng-repeat="task in tasks">
-            {{task.id}}
-        </span>
+    <md-button
+            ng-repeat="(node, tasks) in job.nodeTasks"
+            href="#/chart/{{job.id}}/{{node}}"
+            class="job-nav-btn"
+            layout="row"
+            style="padding-left: 30px">
+        <span flex>{{node}}</span>
+        <span>{{tasks.length}}</span>
     </md-button>
 </div>
