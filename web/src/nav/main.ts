@@ -1,4 +1,4 @@
-module nav {
+namespace parlab.nav {
     var ngModuleName = 'nav';
 
     var modules = [];

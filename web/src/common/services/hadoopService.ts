@@ -1,6 +1,6 @@
 /// <reference path="../main.ts"/>
 
-module common {
+namespace parlab.common {
     export class HadoopService {
         private $http:ng.IHttpService;
         private $q:ng.IQService;

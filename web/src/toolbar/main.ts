@@ -1,4 +1,4 @@
-module toolbar {
+namespace parlab.toolbar {
     var ngModuleName = 'toolbar';
 
     var modules = ['ngMaterial'];

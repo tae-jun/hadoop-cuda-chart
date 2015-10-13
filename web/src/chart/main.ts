@@ -1,4 +1,4 @@
-module chart {
+namespace parlab.chart {
     var ngModuleName = 'chart';
 
     var modules = [];

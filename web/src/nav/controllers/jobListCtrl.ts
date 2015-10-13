@@ -1,6 +1,6 @@
 /// <reference path="../main.ts" />
 
-module nav {
+namespace parlab.nav {
     export class JobListCtrl {
 
         constructor($scope, jobService:common.JobService, $routeParams) {

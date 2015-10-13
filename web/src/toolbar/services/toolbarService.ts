@@ -1,4 +1,4 @@
-module toolbar {
+namespace parlab.toolbar {
     export class ToolbarService {
         private $rootScope:ng.IRootScopeService;
 

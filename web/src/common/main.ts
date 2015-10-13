@@ -1,4 +1,4 @@
-module common {
+namespace parlab.common {
     var ngModuleName = 'common';
 
     var modules = [];

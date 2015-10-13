@@ -12,20 +12,14 @@
         "!./node_modules/**/*.ts"
     ],
     "files": [
-        "./scripts/_references.d.ts",
         "./scripts/typings/async/async.d.ts",
         "./scripts/typings/express/express.d.ts",
-        "./scripts/typings/mongodb/mongodb.d.ts",
         "./scripts/typings/node/node.d.ts",
         "./scripts/typings/socket.io/socket.io.d.ts",
         "./src/app.ts",
-        "./src/config.ts",
-        "./src/mongo/hcc/hdLog/main.ts",
-        "./src/mongo/hcc/main.ts",
-        "./src/mongo/main.ts",
+        "./src/historyApi/main.ts",
         "./src/route/ResForm.ts",
-        "./src/route/hdlog/index.ts",
-        "./src/route/index.ts",
-        "./src/socket/main.ts"
+        "./src/route/history/index.ts",
+        "./src/route/index.ts"
     ]
 }

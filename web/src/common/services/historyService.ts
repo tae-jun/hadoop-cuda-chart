@@ -1,7 +1,7 @@
 /// <reference path="../main.ts"/>
 /// <reference path="./hadoopService.ts"/>
 
-module common {
+namespace parlab.common {
     export class HistoryService {
         private hdpService:HadoopService;
 

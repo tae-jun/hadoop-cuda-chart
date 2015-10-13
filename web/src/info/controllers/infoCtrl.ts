@@ -1,6 +1,6 @@
 /// <reference path="../main.ts" />
 
-module info {
+namespace parlab.info {
     class InfoCtrl {
 
         constructor($scope, info, toolbarService:toolbar.ToolbarService) {

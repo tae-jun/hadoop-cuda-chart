@@ -1,9 +1,9 @@
 class ResForm {
-    err:number;
-    msg:string;
-    data:any;
+    err: number;
+    msg: string;
+    data: any;
 
-    constructor(err:Error, data) {
+    constructor(err: Error, data) {
         if (err) {
             this.err = 1;
             this.data = undefined;
