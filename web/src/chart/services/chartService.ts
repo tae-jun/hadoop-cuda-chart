@@ -1,6 +1,6 @@
 /// <reference path="../main" />
 
-module chart {
+namespace parlab.chart {
     export class ChartService {
         private http:ng.IHttpService;
 

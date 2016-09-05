@@ -1,4 +1,4 @@
-module info {
+namespace parlab.info {
     var ngModuleName = 'info';
 
     var modules = [];

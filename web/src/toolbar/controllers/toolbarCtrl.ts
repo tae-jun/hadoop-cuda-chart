@@ -2,7 +2,7 @@
 /// <reference path="../../chart/services/chartService" />
 
 
-module toolbar {
+namespace parlab.toolbar {
     export class ToolbarCtrl {
         /*constructor($scope: IToolbarScope, $mdBottomSheet) {*/
         constructor($scope:any, $mdBottomSheet, chartService:chart.ChartService) {

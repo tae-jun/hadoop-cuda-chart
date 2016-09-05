@@ -2,7 +2,7 @@
 /// <reference path="../services/chartService" />
 /// <reference path="../config/chartOptions" />
 
-module chart {
+namespace parlab.chart {
     export class ChartCtrl {
 
         constructor($scope:IChartScope,

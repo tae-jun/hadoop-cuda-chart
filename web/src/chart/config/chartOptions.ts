@@ -1,4 +1,4 @@
-module chart {
+namespace parlab.chart {
     export var chartOptions = {
 
         chart: {

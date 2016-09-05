@@ -24,7 +24,7 @@ var app = angular.module('hcc', dependencies)
                 templateUrl: 'tpl/history.tpl.html',
                 controller: 'infoCtrl',
                 resolve: {
-                    info: (historyService:common.HistoryService)=> {
+                    info: (historyService:parlab.common.HistoryService)=> {
                         return historyService.get();
                     }
                 }
@@ -34,7 +34,7 @@ var app = angular.module('hcc', dependencies)
                 templateUrl: 'tpl/chart.tpl.html',
                 controller: 'chartCtrl',
                 resolve: {
-                    job: ($q:ng.IQService, $route, jobService:common.JobService)=> {
+                    job: ($q:ng.IQService, $route, jobService:parlab.common.JobService)=> {
                         var jobId = $route.current.params.jobId;
                         return jobService.getTasks(jobId);
                     }
@@ -45,7 +45,7 @@ var app = angular.module('hcc', dependencies)
                 templateUrl: 'tpl/chart.tpl.html',
                 controller: 'chartCtrl',
                 resolve: {
-                    job: ($q:ng.IQService, $route, jobService:common.JobService)=> {
+                    job: ($q:ng.IQService, $route, jobService:parlab.common.JobService)=> {
                         var jobId = $route.current.params.jobId;
                         return jobService.getTasks(jobId);
                     }
@@ -57,12 +57,8 @@ var app = angular.module('hcc', dependencies)
             });
     })
 
-    .run((chartService, $window, hadoopService:common.HadoopService, jobService:common.JobService) => {
+    .run((chartService, $window, hadoopService:parlab.common.HadoopService, jobService:parlab.common.JobService) => {
         $window.chartService = chartService;
         $window.hadoopService = hadoopService;
         $window.jobService = jobService;
-
-        //jobService.list().then((data)=>console.log(data));
-        //jobService.getTasks('job_1425368798462_0002').then((data)=>console.log(data));
     });
-

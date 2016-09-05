@@ -1,7 +1,7 @@
 /// <reference path="../main.ts" />
 /// <reference path="../../common/services/jobService.ts" />
 
-module nav {
+namespace parlab.nav {
     export function plJobButtonDirective($route, jobService:common.JobService):ng.IDirective {
         return {
             restrict: 'E',

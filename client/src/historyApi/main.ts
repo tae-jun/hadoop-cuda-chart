@@ -43,6 +43,13 @@ export function getTasks(jobId:string, callback:(err, nodeTasks)=>void) {
                         res.on('end', ()=> {
                             body = JSON.parse(body);
 
+							if ( (typeof body)       == "undefined"
+							  || (typeof body.tasks) == "undefined" ) { 
+
+								cb({ message: "Invalid jobId" }, null);
+								return;
+							}
+
                             tasks = body.tasks.task;
                             cb(null, tasks);
                         });

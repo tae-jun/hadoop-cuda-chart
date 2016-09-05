@@ -1,4 +1,4 @@
-Hadoop CUDA Performance Chart
+Hadoop Job History Chart
 ==================================================
 [Parallel Software Design Lab](http://parlab.uos.ac.kr), University of Seoul
 

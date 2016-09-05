@@ -2,26 +2,32 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "declaration": false,
-        "noImplicitAny": false,
-        "removeComments": true,
-        "noLib": false,
         "out": "./dist/app.js"
     },
     "filesGlob": [
         "src/**/*.ts",
         "scripts/**/*.ts",
-        "!./node_modules/**/*.ts"
+        "!node_modules",
+        "!bower_components"
     ],
     "files": [
         "src/app.ts",
-        "src/chart/app/chartOptions.ts",
         "src/chart/config/chartOptions.ts",
         "src/chart/controllers/ChartCtrl.ts",
         "src/chart/main.ts",
         "src/chart/services/chartService.ts",
+        "src/common/main.ts",
+        "src/common/services/hadoopService.ts",
+        "src/common/services/historyService.ts",
+        "src/common/services/jobService.ts",
+        "src/info/controllers/infoCtrl.ts",
+        "src/info/main.ts",
+        "src/nav/controllers/jobListCtrl.ts",
+        "src/nav/directives/plJobButton.ts",
+        "src/nav/main.ts",
         "src/toolbar/controllers/toolbarCtrl.ts",
         "src/toolbar/main.ts",
+        "src/toolbar/services/toolbarService.ts",
         "scripts/typings/angularjs/angular-animate.d.ts",
         "scripts/typings/angularjs/angular-route.d.ts",
         "scripts/typings/angularjs/angular.d.ts",
